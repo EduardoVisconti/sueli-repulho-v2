@@ -7,15 +7,16 @@ import { ebooks } from "@/lib/data";
 
 export default function Ebooks() {
   return (
-    <section id="ebooks" className="py-20 md:py-28 bg-brand-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="ebooks" className="ebooks-section py-20 md:py-28 bg-brand-50">
+      <div className="ebooks-shell max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="text-center mb-14"
+          className="ebooks-header text-center mb-14"
+          style={{ marginBottom: "1.25rem" }}
         >
           <motion.span
             variants={fadeInUp}
@@ -35,8 +36,13 @@ export default function Ebooks() {
           </motion.h2>
           <motion.p
             variants={fadeInUp}
-            className="text-neutral-muted mt-3 max-w-xl mx-auto"
-            style={{ fontFamily: "var(--font-lato), sans-serif" }}
+            className="ebooks-lead text-neutral-muted mt-3 max-w-xl mx-auto"
+            style={{
+              fontFamily: "var(--font-lato), sans-serif",
+              textAlign: "center",
+              marginInline: "auto",
+              marginTop: "0.85rem",
+            }}
           >
             eBooks e programas desenvolvidos com 40 anos de experiência para
             apoiar sua transformação.
@@ -49,7 +55,8 @@ export default function Ebooks() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="ebooks-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          style={{ rowGap: "1.5rem", columnGap: "1.5rem", marginTop: "0.25rem" }}
         >
           {ebooks.map((ebook) => (
             <motion.div
@@ -59,7 +66,7 @@ export default function Ebooks() {
                 y: -6,
                 boxShadow: "0 24px 48px rgba(124,45,140,0.15)",
               }}
-              className="flex flex-col bg-white rounded-2xl border border-brand-100 overflow-hidden transition-all duration-300 group"
+              className="ebook-card flex flex-col bg-white rounded-2xl border border-brand-100 overflow-hidden transition-all duration-300 group"
             >
               {/* Cover image */}
               <div className="relative aspect-square overflow-hidden bg-brand-100">
@@ -76,7 +83,10 @@ export default function Ebooks() {
               </div>
 
               {/* Content */}
-              <div className="p-6 flex flex-col gap-3 flex-1">
+              <div
+                className="ebook-card-body p-6 flex flex-col gap-3 flex-1"
+                style={{ padding: "1.35rem", gap: "0.9rem" }}
+              >
                 <h3
                   className="font-bold text-brand-900 text-lg leading-snug"
                   style={{ fontFamily: "var(--font-playfair), serif" }}
@@ -100,8 +110,13 @@ export default function Ebooks() {
                   href={ebook.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 flex items-center justify-center gap-2 px-5 py-3 bg-brand-700 text-white rounded-full font-semibold text-sm hover:bg-brand-800 transition-all duration-200 shadow-md hover:shadow-lg"
-                  style={{ fontFamily: "var(--font-lato), sans-serif" }}
+                  className="ui-cta ebook-card-cta mt-2 flex items-center justify-center gap-2 px-5 py-3 bg-brand-700 text-white rounded-full font-semibold text-sm hover:bg-brand-800 transition-all duration-200 shadow-md hover:shadow-lg"
+                  style={{
+                    fontFamily: "var(--font-lato), sans-serif",
+                    paddingInline: "1.2rem",
+                    paddingBlock: "0.75rem",
+                    lineHeight: 1.15,
+                  }}
                 >
                   {ebook.cta}
                 </a>

@@ -24,8 +24,8 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="depoimentos" className="py-20 md:py-28 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="depoimentos" className="testimonials-section py-20 md:py-28 bg-white">
+      <div className="testimonials-shell max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           variants={stagger}
@@ -53,7 +53,7 @@ export default function Testimonials() {
         </motion.div>
 
         {/* Carousel */}
-        <div ref={containerRef} className="overflow-hidden">
+        <div ref={containerRef} className="testimonials-carousel overflow-hidden">
           <motion.div
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
@@ -69,13 +69,14 @@ export default function Testimonials() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -60 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-6 select-none"
+                className="testimonials-grid grid grid-cols-1 md:grid-cols-2 gap-6 select-none"
               >
                 {[testimonials[current], testimonials[(current + 1) % testimonials.length]].map(
                   (t, i) => (
                     <div
                       key={i}
-                      className="bg-brand-50 rounded-2xl p-8 border border-brand-100 flex flex-col gap-5"
+                      className="testimonial-card bg-brand-50 rounded-2xl p-8 border border-brand-100 flex flex-col gap-5"
+                      style={{ padding: "1.75rem", gap: "1.1rem" }}
                     >
                       {/* Quote mark */}
                       <span
@@ -92,9 +93,15 @@ export default function Testimonials() {
                         {t.text}
                       </p>
 
-                      <div className="flex items-center gap-3 pt-2 border-t border-brand-200">
+                      <div
+                        className="testimonial-meta flex items-center gap-3 pt-2 border-t border-brand-200"
+                        style={{ marginTop: "0.5rem", paddingTop: "0.8rem", gap: "0.75rem" }}
+                      >
                         {/* Avatar */}
-                        <div className="w-11 h-11 rounded-full bg-brand-700 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                        <div
+                          className="testimonial-avatar w-11 h-11 rounded-full bg-brand-700 flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+                          style={{ width: "2.8rem", height: "2.8rem", border: "2px solid rgba(255,255,255,0.9)" }}
+                        >
                           {t.initials}
                         </div>
                         <div>

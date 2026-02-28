@@ -12,9 +12,12 @@ import { differentials } from "@/lib/data";
 
 export default function About() {
   return (
-    <section id="sobre" className="py-20 md:py-28 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center mb-16">
+    <section id="sobre" className="about-section py-20 md:py-28 bg-white">
+      <div className="about-shell max-w-6xl mx-auto px-4 sm:px-6">
+        <div
+          className="about-intro-grid grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center mb-16"
+          style={{ marginBottom: "2rem", rowGap: "2rem", columnGap: "2.5rem" }}
+        >
           {/* Image */}
           <motion.div
             variants={fadeInLeft}
@@ -61,7 +64,7 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="flex flex-col gap-5"
+            className="about-text-col flex flex-col gap-5"
           >
             <motion.span
               variants={fadeInUp}
@@ -113,7 +116,7 @@ export default function About() {
               Atendo{" "}
               <strong className="text-brand-700">100% online</strong>, o que
               permite que você tenha acesso a um espaço seguro de cuidado
-              emocional onde quer que esteja no Brasil.
+              emocional onde quer que esteja no mundo.
             </motion.p>
 
             <motion.blockquote
@@ -132,14 +135,15 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6"
+          className="about-differentials grid grid-cols-1 sm:grid-cols-3 gap-6"
+          style={{ marginTop: "1.25rem", rowGap: "1.25rem", columnGap: "1.25rem" }}
         >
           {differentials.map((item) => (
             <motion.div
               key={item.title}
               variants={fadeInUp}
-              whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(124,45,140,0.1)" }}
-              className="flex flex-col gap-3 p-6 bg-neutral-warm rounded-2xl border border-brand-100 transition-all duration-300"
+              className="about-diff-card flex flex-col gap-3 p-6 bg-neutral-warm rounded-2xl border border-brand-100 transition-all duration-300"
+              style={{ padding: "1.5rem", minHeight: "12.5rem" }}
             >
               <span className="text-3xl">{item.icon}</span>
               <h3

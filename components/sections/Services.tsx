@@ -6,15 +6,16 @@ import { services, whatsappUrl } from "@/lib/data";
 
 export default function Services() {
   return (
-    <section id="servicos" className="py-20 md:py-28 bg-brand-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="servicos" className="services-section py-20 md:py-28 bg-brand-50">
+      <div className="services-shell max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="text-center mb-14"
+          className="services-header text-center mb-14"
+          style={{ marginBottom: "1.25rem" }}
         >
           <motion.span
             variants={fadeInUp}
@@ -40,7 +41,8 @@ export default function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="services-grid grid grid-cols-1 md:grid-cols-3 gap-6"
+          style={{ rowGap: "1.5rem", columnGap: "1.5rem", marginTop: "0.25rem" }}
         >
           {services.map((service, index) => (
             <motion.div
@@ -50,14 +52,17 @@ export default function Services() {
                 y: -6,
                 boxShadow: "0 24px 48px rgba(124,45,140,0.15)",
               }}
-              className="flex flex-col bg-white rounded-2xl border border-brand-100 overflow-hidden transition-all duration-300 group"
+              className="service-card flex flex-col bg-white rounded-2xl border border-brand-100 overflow-hidden transition-all duration-300 group"
             >
               {/* Top accent bar */}
               <div
                 className={`h-1.5 ${index === 0 ? "bg-brand-700" : index === 1 ? "bg-accent-500" : "bg-brand-500"}`}
               />
 
-              <div className="p-7 flex flex-col gap-4 flex-1">
+              <div
+                className="service-card-body p-7 flex flex-col gap-4 flex-1"
+                style={{ padding: "1.5rem", gap: "1rem" }}
+              >
                 <span className="text-4xl">{service.icon}</span>
                 <h3
                   className="text-xl font-bold text-brand-900"
@@ -85,12 +90,17 @@ export default function Services() {
                   href={whatsappUrl(service.title)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-2 flex items-center justify-center gap-2 px-5 py-3 rounded-full font-semibold text-sm transition-all duration-200 ${
+                  className={`ui-cta service-card-cta mt-2 flex items-center justify-center gap-2 px-5 py-3 rounded-full font-semibold text-sm transition-all duration-200 ${
                     index === 2
                       ? "bg-accent-500 text-white hover:bg-accent-600 shadow-md hover:shadow-lg"
                       : "border-2 border-brand-700 text-brand-700 hover:bg-brand-700 hover:text-white"
                   }`}
-                  style={{ fontFamily: "var(--font-lato), sans-serif" }}
+                  style={{
+                    fontFamily: "var(--font-lato), sans-serif",
+                    paddingInline: "1.2rem",
+                    paddingBlock: "0.75rem",
+                    lineHeight: 1.15,
+                  }}
                 >
                   💬 {service.cta}
                 </a>
@@ -105,8 +115,8 @@ export default function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="text-center text-neutral-muted text-sm mt-10"
-          style={{ fontFamily: "var(--font-lato), sans-serif" }}
+          className="services-note text-center text-neutral-muted text-sm mt-10"
+          style={{ fontFamily: "var(--font-lato), sans-serif", marginTop: "1rem" }}
         >
           Dúvidas sobre qual serviço é ideal para você?{" "}
           <a

@@ -50,8 +50,342 @@ body {
   font-family: var(--font-lato), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-playfair), serif;
+}
+
+main {
+  width: 100%;
+  overflow-x: clip;
+}
+
+main > section,
+main > footer {
+  width: 100%;
+}
+
+main > section > .max-w-6xl,
+main > footer > .max-w-6xl {
+  width: min(100%, 72rem);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  main > section > .max-w-6xl,
+  main > footer > .max-w-6xl {
+    padding-inline: 1.5rem;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Emergency fallback if utility classes fail to load in runtime */
+main > section {
+  padding-block: 5rem;
+}
+
+main > section > div,
+main > footer > div,
+main > nav > div {
+  width: min(100%, 72rem);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+main h1 {
+  font-size: clamp(2rem, 6vw, 3.75rem);
+  line-height: 1.15;
+}
+
+main h2 {
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  line-height: 1.2;
+}
+
+main p {
+  line-height: 1.6;
+}
+
+main img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 640px) {
+  main > section > div,
+  main > footer > div,
+  main > nav > div {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* Targeted hardening for CTA/buttons and Hero badges */
+.navbar-shell {
+  min-height: 4rem;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding-inline: 1.25rem;
+  padding-block: 0.65rem;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.nav-desktop {
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.hero-actions {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.hero-content {
+  gap: 1.5rem;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.hero-photo-wrap {
+  max-width: min(26.25rem, 86vw);
+}
+
+.hero-trust-list {
+  gap: 0.75rem 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.hero-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.hero-badge {
+  z-index: 5;
+  min-width: 8.5rem;
+  padding: 0.8rem 0.95rem;
+  border-radius: 1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.hero-badge p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.ui-cta {
+  min-height: 3rem;
+  line-height: 1.2;
+  text-align: center;
+  white-space: normal;
+}
+
+.contact-cta {
+  min-height: 3.25rem;
+}
+
+.about-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.about-intro-grid {
+  row-gap: 2rem;
+}
+
+.about-text-col {
+  gap: 1rem;
+}
+
+.about-differentials {
+  display: grid;
+  align-items: stretch;
+  gap: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.about-diff-card {
+  min-height: 12.5rem;
+  padding: 1.5rem;
+}
+
+@media (hover: hover) {
+  .about-diff-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(124, 45, 140, 0.1);
+  }
+}
+
+.testimonials-section {
+  overflow: hidden;
+  padding-block: 5rem;
+}
+
+.testimonials-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.testimonials-carousel {
+  padding-block: 0.25rem;
+}
+
+.testimonials-grid {
+  align-items: stretch;
+}
+
+.testimonial-card {
+  min-height: 19rem;
+  padding: 1.75rem;
+}
+
+.testimonial-meta {
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  gap: 0.75rem;
+}
+
+.testimonial-avatar {
+  width: 2.85rem;
+  height: 2.85rem;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.services-shell,
+.ebooks-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.services-header,
+.ebooks-header {
+  margin-bottom: 0.25rem;
+}
+
+.services-grid,
+.ebooks-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.service-card,
+.ebook-card {
+  min-height: 100%;
+}
+
+.service-card-body,
+.ebook-card-body {
+  gap: 0.9rem;
+}
+
+.services-note {
+  margin-top: 0.75rem;
+}
+
+.ebooks-lead {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.footer-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.footer-section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.footer-grid {
+  row-gap: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-nav a,
+.footer-contact a,
+.footer-contact span {
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  padding-top: 1rem;
+  row-gap: 0.75rem;
+}
+
+@media (max-width: 767px) {
+  .hero-actions .hero-btn {
+    width: 100%;
+  }
+
+  .hero-section {
+    padding-top: 5rem;
+  }
+
+  .nav-cta {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .hero-image-col {
+    margin-top: 1.25rem;
+  }
+
+  .hero-badge-left {
+    left: 0.25rem;
+    bottom: 0.25rem;
+  }
+
+  .hero-badge-right {
+    right: 0.25rem;
+    top: 0.25rem;
+  }
+
+  .about-shell,
+  .services-shell,
+  .ebooks-shell,
+  .testimonials-shell,
+  .footer-shell {
+    gap: 1.35rem;
+  }
+
+  .about-differentials,
+  .services-grid,
+  .ebooks-grid {
+    gap: 1rem;
+  }
+
+  .testimonial-card {
+    padding: 1.35rem;
+  }
 }

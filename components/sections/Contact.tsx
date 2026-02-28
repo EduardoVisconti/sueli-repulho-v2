@@ -76,7 +76,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-3 px-8 py-4 bg-accent-500 text-white text-lg font-bold rounded-full shadow-xl hover:bg-accent-600 transition-all duration-200 hover:shadow-2xl"
+              className="ui-cta contact-cta flex items-center justify-center gap-3 px-8 py-4 bg-accent-500 text-white text-lg font-bold rounded-full shadow-xl hover:bg-accent-600 transition-all duration-200 hover:shadow-2xl"
               style={{ fontFamily: "var(--font-lato), sans-serif" }}
             >
               <svg
@@ -96,7 +96,10 @@ export default function Contact() {
               className="flex flex-col gap-3 pt-2"
             >
               {[
-                { icon: "📱", text: "Atendimento online · Todo o Brasil" },
+                {
+                  icon: "📱",
+                  text: "Atendimento online para brasileiros em qualquer lugar do mundo",
+                },
                 { icon: "🕐", text: "Respondo em até 24 horas" },
                 { icon: "🔒", text: "Sigilo e ética profissional garantidos" },
               ].map((item) => (

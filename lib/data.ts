@@ -110,6 +110,7 @@ export const differentials = [
   {
     icon: "💻",
     title: "100% online",
-    description: "Atendo de qualquer lugar do Brasil com profundidade e cuidado",
+    description:
+      "Atendimento para brasileiros em qualquer lugar do mundo, com profundidade e cuidado",
   },
 ];

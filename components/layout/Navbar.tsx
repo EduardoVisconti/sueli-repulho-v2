@@ -41,7 +41,7 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <div className="navbar-shell max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Logo */}
           <a
             href="#"
@@ -68,7 +68,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="nav-desktop hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -83,8 +83,16 @@ export default function Navbar() {
               href={whatsappGeneral()}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 px-5 py-2 bg-accent-500 text-white text-sm font-semibold rounded-full hover:bg-accent-600 transition-colors shadow-sm"
-              style={{ fontFamily: "var(--font-lato), sans-serif" }}
+              className="nav-cta ml-2 px-5 py-2 bg-accent-500 text-white text-sm font-semibold rounded-full hover:bg-accent-600 transition-colors shadow-sm"
+              style={{
+                fontFamily: "var(--font-lato), sans-serif",
+                paddingInline: "1.2rem",
+                paddingBlock: "0.7rem",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                lineHeight: 1.15,
+              }}
             >
               Agendar pelo WhatsApp
             </a>
@@ -159,8 +167,13 @@ export default function Navbar() {
                   href={whatsappGeneral()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-accent-500 text-white font-semibold rounded-full hover:bg-accent-600 transition-colors"
-                  style={{ fontFamily: "var(--font-lato), sans-serif" }}
+                  className="nav-cta flex items-center justify-center gap-2 w-full px-5 py-3 bg-accent-500 text-white font-semibold rounded-full hover:bg-accent-600 transition-colors"
+                  style={{
+                    fontFamily: "var(--font-lato), sans-serif",
+                    paddingInline: "1rem",
+                    paddingBlock: "0.8rem",
+                    lineHeight: 1.15,
+                  }}
                 >
                   💬 Agendar pelo WhatsApp
                 </a>

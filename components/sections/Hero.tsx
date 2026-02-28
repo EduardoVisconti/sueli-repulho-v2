@@ -12,7 +12,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-brand-50 pt-16">
+    <section className="hero-section relative min-h-screen flex items-center overflow-hidden bg-brand-50 pt-16">
       {/* Animated background orbs */}
       <motion.div
         className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-30 blur-[120px]"
@@ -32,13 +32,13 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div className="hero-shell relative max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
         {/* Text column */}
         <motion.div
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className="flex flex-col gap-6"
+          className="hero-content flex flex-col gap-6"
         >
           <motion.span
             variants={fadeInUp}
@@ -71,12 +71,18 @@ export default function Hero() {
 
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-4 pt-2"
+            className="hero-actions flex flex-col sm:flex-row gap-4 pt-2"
+            style={{ gap: "1rem", marginTop: "0.35rem" }}
           >
             <button
               onClick={scrollToServices}
-              className="px-7 py-3.5 bg-brand-700 text-white font-semibold rounded-full hover:bg-brand-800 transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 text-center"
-              style={{ fontFamily: "var(--font-lato), sans-serif" }}
+              className="hero-btn hero-btn-primary px-7 py-3.5 bg-brand-700 text-white font-semibold rounded-full hover:bg-brand-800 transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 text-center"
+              style={{
+                fontFamily: "var(--font-lato), sans-serif",
+                paddingInline: "1.5rem",
+                paddingBlock: "0.85rem",
+                lineHeight: 1.15,
+              }}
             >
               Conhecer os Serviços
             </button>
@@ -84,8 +90,13 @@ export default function Hero() {
               href={whatsappGeneral()}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3.5 border-2 border-accent-500 text-accent-600 font-semibold rounded-full hover:bg-accent-500 hover:text-white transition-all duration-200 text-center"
-              style={{ fontFamily: "var(--font-lato), sans-serif" }}
+              className="hero-btn hero-btn-outline px-7 py-3.5 border-2 border-accent-500 text-accent-600 font-semibold rounded-full hover:bg-accent-500 hover:text-white transition-all duration-200 text-center"
+              style={{
+                fontFamily: "var(--font-lato), sans-serif",
+                paddingInline: "1.5rem",
+                paddingBlock: "0.85rem",
+                lineHeight: 1.15,
+              }}
             >
               💬 Falar no WhatsApp
             </a>
@@ -94,20 +105,20 @@ export default function Hero() {
           {/* Trust badges */}
           <motion.div
             variants={fadeInUp}
-            className="flex flex-wrap gap-6 pt-2 text-sm text-neutral-muted"
-            style={{ fontFamily: "var(--font-lato), sans-serif" }}
+            className="hero-trust-list flex flex-wrap gap-6 pt-2 text-sm text-neutral-muted"
+            style={{ fontFamily: "var(--font-lato), sans-serif", gap: "0.75rem 1rem" }}
           >
-            <span className="flex items-center gap-2">
+            <span className="hero-trust-item flex items-center gap-2">
               <span className="text-accent-500">✓</span>
               40 anos de experiência
             </span>
-            <span className="flex items-center gap-2">
+            <span className="hero-trust-item flex items-center gap-2">
               <span className="text-accent-500">✓</span>
               100% online
             </span>
-            <span className="flex items-center gap-2">
+            <span className="hero-trust-item flex items-center gap-2">
               <span className="text-accent-500">✓</span>
-              Todo o Brasil
+              Brasileiros no mundo todo
             </span>
           </motion.div>
         </motion.div>
@@ -118,9 +129,9 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.4 }}
-          className="flex justify-center md:justify-end"
+          className="hero-image-col flex justify-center md:justify-end"
         >
-          <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[420px] lg:h-[420px]">
+          <div className="hero-photo-wrap relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[420px] lg:h-[420px]">
             {/* Decorative ring */}
             <div className="absolute inset-0 rounded-full border-4 border-brand-200 scale-110 opacity-60" />
             <div className="absolute inset-0 rounded-full border-2 border-accent-200 scale-125 opacity-40" />
@@ -131,7 +142,8 @@ export default function Hero() {
                 src="/images/sueli-hero.png"
                 alt="Sueli Repulho — Psicóloga e Mentora"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-top scale-110"
+                style={{ transform: "scale(1.08)" }}
                 priority
               />
             </div>
@@ -140,17 +152,18 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-brand-100"
+              className="hero-badge hero-badge-left absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3 border border-brand-100"
+              style={{ padding: "0.8rem 1rem", gap: "0.35rem", display: "grid" }}
             >
               <p
                 className="text-xs text-neutral-muted"
-                style={{ fontFamily: "var(--font-lato), sans-serif" }}
+                style={{ fontFamily: "var(--font-lato), sans-serif", margin: 0 }}
               >
                 Experiência
               </p>
               <p
                 className="text-lg font-bold text-brand-700"
-                style={{ fontFamily: "var(--font-playfair), serif" }}
+                style={{ fontFamily: "var(--font-playfair), serif", margin: 0 }}
               >
                 40 anos
               </p>
@@ -164,19 +177,20 @@ export default function Hero() {
                 ease: "easeInOut",
                 delay: 0.5,
               }}
-              className="absolute -top-4 -right-4 bg-accent-500 rounded-2xl shadow-xl px-4 py-3"
+              className="hero-badge hero-badge-right absolute -top-4 -right-4 bg-accent-500 rounded-2xl shadow-xl px-4 py-3"
+              style={{ padding: "0.8rem 1rem", gap: "0.35rem", display: "grid" }}
             >
               <p
                 className="text-xs text-orange-100"
-                style={{ fontFamily: "var(--font-lato), sans-serif" }}
+                style={{ fontFamily: "var(--font-lato), sans-serif", margin: 0 }}
               >
                 Atendimento
               </p>
               <p
                 className="text-sm font-bold text-white"
-                style={{ fontFamily: "var(--font-lato), sans-serif" }}
+                style={{ fontFamily: "var(--font-lato), sans-serif", margin: 0 }}
               >
-                Online 🇧🇷
+                Online no mundo
               </p>
             </motion.div>
           </div>
